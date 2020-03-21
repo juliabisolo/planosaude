@@ -26,7 +26,7 @@ class LoginForm extends TPage
         $this->style = 'clear:both';
         // creates the form
         $this->form = new BootstrapFormBuilder('form_login');
-        $this->form->setFormTitle( 'LOG IN' );
+        $this->form->setFormTitle( 'LOGIN' );
         
         // create the form fields
         $login = new TEntry('login');
@@ -46,31 +46,9 @@ class LoginForm extends TPage
 
         $user   = '<span class="login-avatar"><span class="fa fa-user"></span></span>';
         $locker = '<span class="login-avatar"><span class="fa fa-lock"></span></span>';
-        $unit   = '<span class="login-avatar"><span class="fa fa-university"></span></span>';
-        $lang   = '<span class="login-avatar"><span class="fa fa-globe"></span></span>';
         
         $this->form->addFields( [$user, $login] );
         $this->form->addFields( [$locker, $password] );
-        
-        if (!empty($ini['general']['multiunit']) and $ini['general']['multiunit'] == '1')
-        {
-            $unit_id = new TCombo('unit_id');
-            $unit_id->setSize('70%');
-            $unit_id->style = 'height:35px;font-size:14px;float:left;border-bottom-left-radius: 0;border-top-left-radius: 0;';
-            $this->form->addFields( [$unit, $unit_id] );
-            $login->setExitAction(new TAction( [$this, 'onExitUser'] ) );
-        }
-        
-        if (!empty($ini['general']['multi_lang']) and $ini['general']['multi_lang'] == '1')
-        {
-            $lang_id = new TCombo('lang_id');
-            $lang_id->setSize('70%');
-            $lang_id->style = 'height:35px;font-size:14px;float:left;border-bottom-left-radius: 0;border-top-left-radius: 0;';
-            $lang_id->addItems( $ini['general']['lang_options'] );
-            $lang_id->setValue( $ini['general']['language'] );
-            $lang_id->setDefaultOption(FALSE);
-            $this->form->addFields( [$lang, $lang_id] );
-        }
         
         $btn = $this->form->addAction(_t('Log in'), new TAction(array($this, 'onLogin')), '');
         $btn->class = 'btn btn-primary';
@@ -134,18 +112,12 @@ class LoginForm extends TPage
             (new TRequiredValidator)->validate( _t('Login'),    $data->login);
             (new TRequiredValidator)->validate( _t('Password'), $data->password);
             
-            if (!empty($ini['general']['multiunit']) and $ini['general']['multiunit'] == '1')
-            {
-                (new TRequiredValidator)->validate( _t('Unit'), $data->unit_id);
-            }
             
             TSession::regenerate();
             $user = ApplicationAuthenticationService::authenticate( $data->login, $data->password );
             
             if ($user)
             {
-                ApplicationAuthenticationService::setUnit( $data->unit_id ?? null );
-                ApplicationAuthenticationService::setLang( $data->lang_id ?? null );
                 SystemAccessLogService::registerLogin();
                 
                 $frontpage = $user->frontpage;

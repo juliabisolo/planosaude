@@ -1872,7 +1872,7 @@
     color: #fff !important; }
 
 .bg-indigo {
-  background-color: #3F51B5 !important;
+  background-color: #258257 !important;
   color: #fff; }
   .bg-indigo .content .text,
   .bg-indigo .content .number {
@@ -2519,7 +2519,7 @@ section.content {
 .panel .btn-primary:hover,
 .panel .btn-primary:active,
 .panel .btn-primary:focus {
-  background-color: #1f91f3 !important; }
+  background-color: #258257 !important; }
 
 /* Bootstrap Tags Input ======================== */
 .bootstrap-tagsinput {
@@ -7507,7 +7507,7 @@ fieldset[disabled] .form-control {
         overflow: hidden;
         font-size: 14px;
         max-width: 200px;
-        color: #fff; }
+        color: #272727; }
       .sidebar .user-info .info-container .email {
         white-space: nowrap;
         -ms-text-overflow: ellipsis;
@@ -7516,7 +7516,7 @@ fieldset[disabled] .form-control {
         overflow: hidden;
         font-size: 12px;
         max-width: 200px;
-        color: #fff; }
+        color: #272727; }
       .sidebar .user-info .info-container .user-helper-dropdown {
         position: absolute;
         right: -3px;
@@ -8150,27 +8150,27 @@ html.ie11 .bs-searchbox .form-control {
 /* Template top bar colors per theme */
 body.theme-indigo > section > aside.sidebar > div.user-info
 {
-    background: repeating-linear-gradient(0, rgba(168, 168, 168, 0.24) 0px, rgba(168, 168, 168, 0.24) 9px,rgba(242, 242, 242, 0.24) 9px, rgba(242, 242, 242, 0.24) 18px),repeating-linear-gradient(90deg, rgba(237, 237, 237, 0.09) 0px, rgba(237, 237, 237, 0.09) 10px,rgba(73, 73, 73, 0.09) 10px, rgba(73, 73, 73, 0.09) 20px),linear-gradient(90deg, rgb(32, 21, 115),rgb(121, 140, 232)) !important;
+    background: repeating-linear-gradient(0, rgba(214, 214, 214, 1) 0px, rgba(196, 196, 196, 1) 9px,rgba(214, 214, 214, 1) 9px, rgba(196, 196, 196, 1) 18px),repeating-linear-gradient(90deg, rgba(214, 214, 214, 1) 0px, rgba(214, 214, 214, 1) 10px,rgba(214, 214, 214, 1) 10px, rgba(214, 214, 214, 1) 20px),linear-gradient(90deg, rgb(168, 168, 168),rgb(168, 168, 168)) !important;
 }
 
 body.theme-green > section > aside.sidebar > div.user-info
 {
-    background: repeating-linear-gradient(0, rgba(152, 152, 152, 0.14) 0px, rgba(152, 152, 152, 0.14) 9px,rgba(243, 243, 243, 0.14) 9px, rgba(243, 243, 243, 0.14) 18px),repeating-linear-gradient(90deg, rgba(163, 163, 163, 0.11) 0px, rgba(163, 163, 163, 0.11) 10px,rgba(55, 55, 55, 0.11) 10px, rgba(55, 55, 55, 0.11) 20px),linear-gradient(90deg, hsl(104,100%,16%),hsl(104, 46%, 45%)) !important;
+    background: repeating-linear-gradient(0, rgba(152, 152, 152, 1) 0px, rgba(152, 152, 152, 1) 9px,rgba(152, 152, 152, 1) 9px, rgba(152, 152, 152, 1) 18px),repeating-linear-gradient(90deg, rgba(152, 152, 152, 1) 0px, rgba(152, 152, 152, 1) 10px,rgba(152, 152, 152, 1) 10px, rgba(152, 152, 152, 1) 20px),linear-gradient(90deg, hsl(104,100%,16%),hsl(104, 46%, 45%)) !important;
 }
 
 body.theme-amber > section > aside.sidebar > div.user-info
 {
-    background: repeating-linear-gradient(0, rgba(152, 152, 152, 0.14) 0px, rgba(152, 152, 152, 0.14) 9px,rgba(243, 243, 243, 0.14) 9px, rgba(243, 243, 243, 0.14) 18px),repeating-linear-gradient(90deg, rgba(163, 163, 163, 0.11) 0px, rgba(163, 163, 163, 0.11) 10px,rgba(55, 55, 55, 0.11) 10px, rgba(55, 55, 55, 0.11) 20px),linear-gradient(90deg, hsl(28, 100%, 16%),hsl(44, 46%, 45%)) !important;
+    background: repeating-linear-gradient(0, rgba(214, 214, 214, 1) 0px, rgba(214, 214, 214, 1) 9px,rgba(214, 214, 214, 1) 9px, rgba(214, 214, 214, 1) 18px),repeating-linear-gradient(90deg, rgba(214, 214, 214, 1) 0px, rgba(214, 214, 214, 1) 10px,rgba(214, 214, 214, 1) 10px, rgba(214, 214, 214, 1) 20px),linear-gradient(90deg, hsl(28, 100%, 16%),hsl(44, 46%, 45%)) !important;
 }
 
 body.theme-black > section > aside.sidebar > div.user-info
 {
-    background: repeating-linear-gradient(0, rgba(152, 152, 152, 0.14) 0px, rgba(152, 152, 152, 0.14) 9px,rgba(243, 243, 243, 0.14) 9px, rgba(243, 243, 243, 0.14) 18px),repeating-linear-gradient(90deg, rgba(163, 163, 163, 0.11) 0px, rgba(163, 163, 163, 0.11) 10px,rgba(55, 55, 55, 0.11) 10px, rgba(55, 55, 55, 0.11) 20px),linear-gradient(90deg, hsl(0, 0%, 0%),hsl(0, 0%, 52%)) !important;
+    background: repeating-linear-gradient(0, rgba(152, 152, 152, 1) 0px, rgba(152, 152, 152, 1) 9px,rgba(152, 152, 152, 1) 9px, rgba(152, 152, 152, 1) 18px),repeating-linear-gradient(90deg, rgba(152, 152, 152, 1) 0px, rgba(152, 152, 152, 1) 10px,rgba(152, 152, 152, 1) 10px, rgba(152, 152, 152, 1) 20px),linear-gradient(90deg, hsl(0, 0%, 0%),hsl(0, 0%, 52%)) !important;
 }
 
 body.theme-blue > section > aside.sidebar > div.user-info
 {
-    background: repeating-linear-gradient(0, rgba(168, 168, 168, 0.24) 0px, rgba(168, 168, 168, 0.24) 9px,rgba(242, 242, 242, 0.24) 9px, rgba(242, 242, 242, 0.24) 18px),repeating-linear-gradient(90deg, rgba(237, 237, 237, 0.09) 0px, rgba(237, 237, 237, 0.09) 10px,rgba(73, 73, 73, 0.09) 10px, rgba(73, 73, 73, 0.09) 20px),linear-gradient(90deg, rgb(21, 80, 115),rgb(121, 227, 232)) !important;
+    background: repeating-linear-gradient(0, rgba(214, 214, 214, 1) 0px, rgba(214, 214, 214, 1) 9px,rgba(214, 214, 214, 1) 9px, rgba(214, 204, 204, 1) 18px),repeating-linear-gradient(90deg, rgba(204, 204, 204, 1) 0px, rgba(204, 204, 204, 1) 10px,rgba(204, 204, 204, 1) 10px, rgba(204, 204, 204, 1) 20px),linear-gradient(90deg, rgb(21, 80, 115),rgb(121, 227, 232)) !important;
 }
 
 body.theme-brown > section > aside.sidebar > div.user-info
