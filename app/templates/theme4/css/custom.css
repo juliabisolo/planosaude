@@ -278,7 +278,7 @@ nav ul.navbar-nav .label-count {
 /** BFBuilder **/
 .panel form[type="bootstrap"] .ttd
 {
-    display: inline-block;
+    display: block;
     margin-top: 8px;
 }
 
@@ -322,7 +322,7 @@ form .tfield, form .tfield_disabled, form .tcombo
 
 .panel form[type="bootstrap"] select[widget="tcombo"], .panel form[type="bootstrap"] textarea, .panel form[type="bootstrap"] input
 {
-    display: inline-block;
+    display: block;
     padding: 4px;
     font-size: 14px;
     line-height: 20px;

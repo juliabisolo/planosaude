@@ -226,13 +226,13 @@ input.form-control.tfield[widget="tfile"], input.form-control.tfield[widget="tmu
 
 .tformtitle > td
 {
-    background-color: #3c8dbc !important;
+    background-color: #fff !important;
     padding: 8px 0px 8px 5px !important;
 }
 
 .tformtitle > td > label
 {
-    color: white !important;
+    color: #333 !important;
 }
 
 .tformaction > td
@@ -409,7 +409,7 @@ table.table[widget="tchecklist"]>tbody>tr>td:first-child
 .kanban-item-actions i.fas, .card-item-actions i.fas,
 .kanban-item-actions i.far, .card-item-actions i.far
 {
-    display: inline-block;
+    display: block;
     border-radius: 60px;
     box-shadow: 0px 0px 2px #888;
     padding: 0.5em 0.6em;
@@ -520,7 +520,7 @@ blockquote .small, blockquote footer, blockquote small {
 label
 {
     font-family: 'Roboto', Arial, Tahoma, sans-serif;
-    color: #555;
+    color: #333;
 }
 
 div.tab-pane
@@ -796,7 +796,7 @@ nav ul.navbar-nav .label-count {
 /** BFBuilder **/
 .panel form[type="bootstrap"] .ttd
 {
-    display: inline-block;
+    display: block;
     margin-top: 8px;
 }
 
@@ -840,7 +840,7 @@ form .tfield, form .tfield_disabled, form .tcombo
 
 .panel form[type="bootstrap"] select[widget="tcombo"], .panel form[type="bootstrap"] textarea, .panel form[type="bootstrap"] input
 {
-    display: inline-block;
+    display: block;
     padding: 4px;
     font-size: 14px;
     line-height: 20px;
@@ -1325,7 +1325,7 @@ a.nav-link:not(.active):hover {
 .timeline>.time-label>span {
 	font-weight: 600;
 	padding: 5px;
-	display: inline-block;
+	display: block;
 	background-color: #fff;
 	border-radius: 4px;
 }

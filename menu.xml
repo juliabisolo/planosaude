@@ -48,11 +48,11 @@
   <menuitem label="Agendamento">
     <icon>fas:calendar-alt fa-fw</icon>
     <menu>
-      <menuitem label="Novo agendamento">
+      <menuitem label="Registro agendamento">
         <action>SystemDocumentUploadForm</action>
         <icon>fas:plus-square fa-fw</icon>
       </menuitem>
-      <menuitem label="Agendamentos">
+      <menuitem label="Buscar agendamentos">
         <action>SystemDocumentUploadForm</action>
         <icon>fas:calendar-day fa-fw</icon>
       </menuitem>
@@ -61,12 +61,12 @@
   <menuitem label="Consulta">
     <icon>fas:heartbeat fa-fw</icon>
     <menu>
-      <menuitem label="Nova consulta">
-        <action>SystemSharedDocumentList</action>
+      <menuitem label="Registro consulta">
+        <action>ConsultaForm</action>
         <icon>fas:plus-square fa-fw</icon>
       </menuitem>
-      <menuitem label="Consultas">
-        <action>SystemSharedDocumentList</action>
+      <menuitem label="Buscar consultas">
+        <action>ConsultaList</action>
         <icon>fas:calendar-check fa-fw</icon>
       </menuitem>
     </menu>
@@ -74,12 +74,12 @@
   <menuitem label="Pessoas">
     <icon>fas:user-circle fa-fw</icon>
     <menu>
-      <menuitem label="Cadastrar pessoa">
-        <action>SystemDocumentUploadForm</action>
+      <menuitem label="Registro pessoa">
+        <action>PessoaForm</action>
         <icon>fas:user-plus fa-fw</icon>
       </menuitem>
-      <menuitem label="Pessoas">
-        <action>SystemDocumentList</action>
+      <menuitem label="Buscar pessoas">
+        <action>PessoaList</action>
         <icon>fas:users fa-fw</icon>
       </menuitem>
     </menu>

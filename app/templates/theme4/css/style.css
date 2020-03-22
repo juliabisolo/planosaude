@@ -8245,15 +8245,15 @@ body.theme-yellow > section > aside.sidebar > div.user-info
 
 
 body.theme-indigo .dtp > .dtp-content > .dtp-date-view > header.dtp-header {
-    background: #453fc7 !important;
+    background: #245841 !important;
 }
 
 body.theme-indigo .dtp div.dtp-date, body.theme-indigo .dtp div.dtp-time {
-    background: #7563e8 !important;
+    background: #258257 !important;
 }
 
 body.theme-indigo .dtp table.dtp-picker-days tr > td > a.selected {
-    background: #7563e8 !important;
+    background: #258257 !important;
 }
 
 body.theme-green .dtp > .dtp-content > .dtp-date-view > header.dtp-header {
