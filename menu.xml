@@ -84,6 +84,19 @@
       </menuitem>
     </menu>
   </menuitem>
+  <menuitem label="Profissões">
+    <icon>fas:user-alt fa-fw</icon>
+    <menu>
+      <menuitem label="Registro profissão">
+        <action>ProfissaoForm</action>
+        <icon>fas:plus-square fa-fw</icon>
+      </menuitem>
+      <menuitem label="Busca profissões">
+        <action>ProfissaoList</action>
+        <icon>fas:search fa-fw</icon>
+      </menuitem>
+    </menu>
+  </menuitem>
   <menuitem label="Logs">
     <icon>fas:desktop fa-fw</icon>
     <menu>
