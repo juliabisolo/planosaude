@@ -145,7 +145,7 @@ class ConsultaList extends TPage
     {
         try
         {
-            // open a transaction with database 'agenda_julia'
+            // open a transaction with database 'agenda'
             TTransaction::open('agenda');
             
             // creates a repository for Pessoa
