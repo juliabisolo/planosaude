@@ -49,11 +49,11 @@
     <icon>fas:calendar-alt fa-fw</icon>
     <menu>
       <menuitem label="Registro agendamento">
-        <action>SystemDocumentUploadForm</action>
+        <action>AgendamentoList</action>
         <icon>fas:plus-square fa-fw</icon>
       </menuitem>
       <menuitem label="Buscar agendamentos">
-        <action>SystemDocumentUploadForm</action>
+        <action>AgendamentoList2</action>
         <icon>fas:calendar-day fa-fw</icon>
       </menuitem>
     </menu>

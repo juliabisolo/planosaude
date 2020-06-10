@@ -85,7 +85,6 @@ class TRadioGroup extends TField implements AdiantiWidgetInterface
                            '2' => AdiantiCoreTranslator::translate('No') ] );
         $this->setLayout('horizontal');
         $this->setUseButton();
-        
         // if setValue() was called previously
         if ($this->value === true)
         {
