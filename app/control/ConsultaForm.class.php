@@ -31,10 +31,11 @@ class ConsultaForm extends TPage
 
         // create the form fields
         $id = new THidden('id');
-        $data_hora_inicio = new TDateTime('data_hora_inicio');
-        $data_hora_fim = new TDateTime('data_hora_fim');
+        $data_hora_inicio    = new TDateTime('data_hora_inicio');
+        $data_hora_fim       = new TDateTime('data_hora_fim');
         $ref_pessoa_paciente = new TDBUniqueSearch('ref_pessoa_paciente', 'agenda', 'Pessoa', 'id', 'nome', 'nome', $criteria_paciente);
-        $parecer = new TText('parecer');
+        $parecer             = new TText('parecer');
+        $ref_agendamento     = new THidden('ref_agendamento');
 
         $ref_pessoa_paciente->setMinLength(1);
         $data_hora_inicio->setMask('dd/mm/yyyy hh:ii');
@@ -48,6 +49,9 @@ class ConsultaForm extends TPage
 
         // add one row for each form field
         $this->form->addFields([$id]);
+
+        $this->form->addFields([$ref_agendamento]);
+
         $row = $this->form->addFields( [new TLabel('Início:'), $data_hora_inicio] );
         $row->layout = ['col-sm-3']; //comprimento do campo, setSize não funcionou
 
@@ -86,22 +90,22 @@ class ConsultaForm extends TPage
             
             // get the form data into an active record Entry
             $data = $this->form->getData();
-            
-            $object = new Consulta();
-            $object->id = $data->id;
-            $object->data_hora_inicio = $data->data_hora_inicio;
-            $object->data_hora_fim = $data->data_hora_fim;
+
+            $object                      = new Consulta();
+            $object->id                  = $data->id;
+            $object->data_hora_inicio    = $data->data_hora_inicio;
+            $object->data_hora_fim       = $data->data_hora_fim;
             $object->ref_pessoa_paciente = $data->ref_pessoa_paciente;
-            $object->parecer = $data->parecer;
+            $object->parecer             = $data->parecer;
+            $object->ref_agendamento     = $data->ref_agendamento;
 
             if($object->data_hora_inicio > $object->data_hora_fim)
             {
                 ConsultaForm::alertDatasConsulta($param);
                 return;
             }
-            
+
             $object->store(); // stores the object
-            
             $data->id = $object->id;
             $this->form->setData($data); // keep form data
             
@@ -135,6 +139,50 @@ class ConsultaForm extends TPage
         $dateFormatted = date("d/m/Y H:i", $timestamp);
 
         return $dateFormatted; 
+    }
+
+    public function onAgendamento( $param )
+    {
+        try
+        {
+            if (isset($param['id']))
+            {
+                $key = $param['id'];  // get the parameter $key
+                TTransaction::open('agenda'); // open a transaction
+                
+                $agendamento = new Agendamento($key); // instantiates the Active Record
+
+                $object = new stdClass;
+                $object->ref_pessoa_paciente = $agendamento->ref_pessoa_paciente;
+                $object->ref_agendamento = $agendamento->id;
+
+                $start_date = substr($agendamento->data_hora_inicio,0,10);
+                $start_hour = substr($agendamento->data_hora_inicio,11,2);
+                $start_minute = substr($agendamento->data_hora_inicio,14,2);
+                $object->data_hora_inicio = $start_date . ' ' . str_pad($start_hour, 2, '0', STR_PAD_LEFT) . ':' . str_pad($start_minute, 2, '0', STR_PAD_LEFT) . ':00';
+                $dateFormatted = $this->formatDateEdit($object->data_hora_inicio);
+                $object->data_hora_inicio = $dateFormatted;
+
+                $end_date = substr($agendamento->data_hora_fim,0,10);
+                $end_hour = substr($agendamento->data_hora_fim,11,2);
+                $end_minute = substr($agendamento->data_hora_fim,14,2);
+                $object->data_hora_fim = $end_date . ' ' . str_pad($end_hour, 2, '0', STR_PAD_LEFT) . ':' . str_pad($end_minute, 2, '0', STR_PAD_LEFT) . ':00';
+                $dateFormatted = $this->formatDateEdit($object->data_hora_fim);
+                $object->data_hora_fim = $dateFormatted;
+
+                $this->form->setData($object); // fill the form
+                TTransaction::close(); // close the transaction
+            }
+            else
+            {
+                $this->form->clear();
+            }
+        }
+        catch (Exception $e) // in case of exception
+        {
+            new TMessage('error', $e->getMessage()); // shows the exception error message
+            TTransaction::rollback(); // undo all pending operations
+        }
     }
 
     /**

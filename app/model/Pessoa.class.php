@@ -25,4 +25,14 @@ class Pessoa extends TRecord
         parent::addAttribute('ref_profissao');
         parent::addAttribute('fl_ativo');
     }
+
+    public function getPessoa($id)
+    {
+        $pessoa = new Pessoa($id);
+
+        if($pessoa)
+        {
+            return $pessoa;
+        }
+    }
 }

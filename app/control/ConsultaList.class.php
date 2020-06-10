@@ -53,6 +53,8 @@ class ConsultaList extends TPage
         $column_data_hora_fim = new TDataGridColumn('data_hora_fim', 'Data/Hora Fim', 'left');
         $column_ref_pessoa_paciente = new TDataGridColumn('ref_pessoa_paciente', 'Paciente', 'left');
         $column_ref_pessoa_paciente->setTransformer([$this, 'transformerPaciente']);
+        $column_data_hora_inicio->setTransformer(array($this, 'formatDate'));
+        $column_data_hora_fim->setTransformer(array($this, 'formatDate'));
 
         // add the columns to the DataGrid
         $this->datagrid->addColumn($column_id);
@@ -136,6 +138,13 @@ class ConsultaList extends TPage
         }
 
         return '';
+    }
+
+    //formata data BR
+    public function formatDate($date, $object)
+    {
+        $date = new DateTime($date);
+        return $date->format('d/m/Y H:i:s');
     }
 
     /**

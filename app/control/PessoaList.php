@@ -31,11 +31,9 @@ class PessoaList extends TPage
         $id = new TEntry('id');
         $nome = new TEntry('nome');
 
-
         // add the fields
         $this->form->addQuickField('Id', $id,  200);
         $this->form->addQuickField('Nome', $nome,  200);
-
         
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue('Pessoa_filter_data') );
@@ -209,19 +207,17 @@ class PessoaList extends TPage
                 $param['order'] = 'id';
                 $param['direction'] = 'asc';
             }
+
             $criteria->setProperties($param); // order, offset
             $criteria->setProperty('limit', $limit);
             
-
             if (TSession::getValue('PessoaList_filter_id')) {
                 $criteria->add(TSession::getValue('PessoaList_filter_id')); // add the session filter
             }
 
-
             if (TSession::getValue('PessoaList_filter_nome')) {
                 $criteria->add(TSession::getValue('PessoaList_filter_nome')); // add the session filter
             }
-
             
             // load the objects according to criteria
             $objects = $repository->load($criteria, FALSE);

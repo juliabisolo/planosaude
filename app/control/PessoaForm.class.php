@@ -56,17 +56,19 @@ class PessoaForm extends TPage
         $endereco->addValidation('Endereço', new TRequiredValidator); // obrigatório
         $cor_agenda->addValidation('Cor agenda', new TRequiredValidator); // obrigatório
 
-        //oculta campo id quando for um novo cadastro, se não, não permite que ele seja editado
-        if (empty($id))
+        //oculta campo id quando for um novo cadastro. Se não, não permite que ele seja visualizado.
+        /*if (empty($id))
         {
             $row = $this->form->addFields([ new TLabel('Id'), $id]);
         }
         else
         {
             $id->setEditable(FALSE);
-        }
+        }*/
 
         //adiciona os campos no form
+        $this->form->addFields([$id]);
+
         $row = $this->form->addFields([ new TLabel('Nome*'), $nome]);
 
         $row = $this->form->addFields([ new TLabel('CPF*'), $cpf]);
@@ -177,7 +179,7 @@ class PessoaForm extends TPage
             {
                 throw new Exception(AdiantiCoreTranslator::translate('^1 was not defined. You must call ^2 in ^3', 'Active Record', 'setActiveRecord()', AdiantiCoreTranslator::translate('Constructor')));
             }
-            
+
             // open a transaction with database
             TTransaction::open($this->database);
 
