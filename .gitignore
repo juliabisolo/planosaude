@@ -1,2 +1,4 @@
 
 app/config/agenda.ini
+
+app/database/log.db
