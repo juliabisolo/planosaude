@@ -14,5 +14,8 @@
     "pablodalloglio/ole": "dev-master",
     "pablodalloglio/spreadsheet_excel_writer": "dev-master",
     "linfo/linfo": "^4.0"
-    }
+    },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
 }

@@ -29,4 +29,17 @@ class Consulta extends TRecord
         $pessoa = new Pessoa($this->ref_pessoa_paciente);
         return new $pessoa->nome;
     }
+
+    public static function getTotalConsultasPessoa($ref_pessoa_paciente)
+    {
+        $consultas = Consulta::where('ref_pessoa_paciente', '=', $ref_pessoa_paciente)->load();
+
+        $count = 0;
+        foreach ($consultas as $consulta) 
+        {
+            $count++;
+        }
+
+        return $count;
+    }
 }

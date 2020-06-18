@@ -26,4 +26,17 @@ class Agendamento extends TRecord
     {
         return new Pessoa($this->paciente_id);
     }
+
+    public static function getTotalAgendamentosPessoa($ref_pessoa_paciente)
+    {
+        $agendamentos = Agendamento::where('ref_pessoa_paciente', '=', $ref_pessoa_paciente)->load();
+
+        $count = 0;
+        foreach ($agendamentos as $agendamento) 
+        {
+            $count++;
+        }
+
+        return $count;
+    }
 }
