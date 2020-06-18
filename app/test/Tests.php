@@ -959,7 +959,15 @@ public function testCreateDeleteProfissao1()
             TTransaction::open('agenda');
 
             $pessoa = new Pessoa();
-            $pessoa->nome = 'Pessoa teste auto.';
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
             $pessoa->store();
 
             $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
@@ -974,7 +982,15 @@ public function testCreateDeleteProfissao1()
             TTransaction::open('agenda');
 
             $pessoa = new Pessoa();
-            $pessoa->cpf = 'Pessoa teste auto.';
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
             $pessoa->store();
 
             $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
@@ -989,7 +1005,15 @@ public function testCreateDeleteProfissao1()
             TTransaction::open('agenda');
 
             $pessoa = new Pessoa();
-            $pessoa->endereco = 'Pessoa teste auto.';
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
             $pessoa->store();
 
             $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
@@ -1004,7 +1028,15 @@ public function testCreateDeleteProfissao1()
             TTransaction::open('agenda');
 
             $pessoa = new Pessoa();
-            $pessoa->telefone = 'Pessoa teste auto.';
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
             $pessoa->store();
 
             $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
@@ -1019,7 +1051,15 @@ public function testCreateDeleteProfissao1()
             TTransaction::open('agenda');
 
             $pessoa = new Pessoa();
-            $pessoa->historico = 'Pessoa teste auto.';
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
             $pessoa->store();
 
             $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
