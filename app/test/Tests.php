@@ -966,6 +966,7 @@ public function testCreateDeleteProfissao1()
             $pessoa->telefone = '(51)00000-0000';
             $pessoa->cor_agenda = '#1a5d3e';
             $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
@@ -988,6 +989,7 @@ public function testCreateDeleteProfissao1()
             $pessoa->telefone = '(51)00000-0000';
             $pessoa->cor_agenda = '#1a5d3e';
             $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
@@ -1010,6 +1012,7 @@ public function testCreateDeleteProfissao1()
             $pessoa->telefone = '(51)00000-0000';
             $pessoa->cor_agenda = '#1a5d3e';
             $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
@@ -1032,6 +1035,7 @@ public function testCreateDeleteProfissao1()
             $pessoa->telefone = '(51)00000-0000';
             $pessoa->cor_agenda = '#1a5d3e';
             $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
@@ -1054,6 +1058,7 @@ public function testCreateDeleteProfissao1()
             $pessoa->telefone = '(51)00000-0000';
             $pessoa->cor_agenda = '#1a5d3e';
             $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
