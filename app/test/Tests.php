@@ -354,7 +354,6 @@
             $this->assertEquals( Profissao::validaTamanho($profissao->id), $value );
             
             TTransaction::rollback();
-
         }
 
         public function testCreatePessoa()
@@ -385,17 +384,16 @@
             TTransaction::rollback();
         }
 
-public function testCreateDeleteProfissao1()
+        public function testPreenchimentoNomePessoa()
         {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
+            $value = true;
+
             TTransaction::open('agenda');
-            
-            $value = 2;
 
             $profissao = new Profissao();
             $profissao->descricao = 'Profissão teste auto.';
             $profissao->store();
-
+            
             $pessoa = new Pessoa();
             $pessoa->nome = 'Ana Maria';
             $pessoa->cpf = date('048.353.090-57');
@@ -408,549 +406,167 @@ public function testCreateDeleteProfissao1()
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
+            $this->assertEquals( PessoaService::validaPreenchimentoNome($pessoa->id), $value );
             TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao2()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao3()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao4()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao5()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao6()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao7()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao8()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao9()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao10()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao11()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao12()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        public function testCreateDeleteProfissao13()
-        {
-            //insere uma profissão e deleta todas as profisões. 0 = 0.
-            TTransaction::open('agenda');
-            
-            $value = 2;
-
-            $profissao = new Profissao();
-            $profissao->descricao = 'Profissão teste auto.';
-            $profissao->store();
-
-            $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
-            $pessoa->cpf = date('048.353.090-57');
-            $pessoa->dt_nascimento = ('1998-10-10');
-            $pessoa->endereco = 'Rua Teste Auto';
-            $pessoa->telefone = '(51)00000-0000';
-            $pessoa->cor_agenda = '#1a5d3e';
-            $pessoa->historico = 'Teste histórico Ana Maria';
-            $pessoa->ref_profissao = $profissao->id;
-            $pessoa->fl_ativo = true;
-            $pessoa->store();
-
-            $pessoa2 = new Pessoa();
-            $pessoa2->nome = 'João';
-            $pessoa2->cpf = date('048.353.090-57');
-            $pessoa2->dt_nascimento = ('1998-10-10');
-            $pessoa2->endereco = 'Rua Teste Auto';
-            $pessoa2->telefone = '(51)00000-0000';
-            $pessoa2->cor_agenda = '#1a5d3e';
-            $pessoa2->historico = 'Teste histórico Ana Maria';
-            $pessoa2->ref_profissao = $profissao->id;
-            $pessoa2->fl_ativo = true;
-            $pessoa2->store();
-
-            $count = Pessoa::where('ref_profissao', '=', $profissao->id)->count();
-
-            $this->assertEquals( $count, $value );
-            TTransaction::rollback();
-        }
-        
-        
-       /* public function testPreenchimentoNomePessoa()
-        {
-
         }
 
         public function testPreenchimentoCpfPessoa()
         {
+            $value = true;
+
+            TTransaction::open('agenda');
+
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
             
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $this->assertEquals( PessoaService::validaPreenchimentoCpf($pessoa->id), $value );
+            TTransaction::rollback();
+
         }
 
         public function testPreenchimentoDataNascimentoPessoa()
         {
+            $value = true;
+
+            TTransaction::open('agenda');
+
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
             
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $this->assertEquals( PessoaService::validaPreenchimentoDataNascimento($pessoa->id), $value );
+            TTransaction::rollback();
         }
 
         public function testPreenchimentoTelefonePessoa()
         {
+            $value = true;
+
+            TTransaction::open('agenda');
+
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
             
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $this->assertEquals( PessoaService::validaPreenchimentoTelefone($pessoa->id), $value );
+            TTransaction::rollback();
         }
 
         public function testPreenchimentoProfissaoPessoa()
         {
+            $value = true;
+
+            TTransaction::open('agenda');
+
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
             
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $this->assertEquals( PessoaService::validaPreenchimentoProfissao($pessoa->id), $value );
+            TTransaction::rollback();
         }
 
         public function testPreenchimentoEnderecoPessoa()
         {
+            $value = true;
+
+            TTransaction::open('agenda');
+
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
             
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $this->assertEquals( PessoaService::validaPreenchimentoEndereco($pessoa->id), $value );
+            TTransaction::rollback();
+
         }
 
         public function testPreenchimentoHistoricoPessoa()
         {
-            
-        }
+            $value = true;
 
-        public function testSomenteLetrasNomePessoa()
-        {
-            
-        }
+            TTransaction::open('agenda');
 
-        public function testFormatoDataNascimentoPessoa()
-        {
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
             
-        }*/
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $this->assertEquals( PessoaService::validaPreenchimentoHistorico($pessoa->id), $value );
+            TTransaction::rollback();
+        }
 
         public function testTamanhoPreenchimentoNomePessoa()
         {
@@ -958,8 +574,12 @@ public function testCreateDeleteProfissao1()
 
             TTransaction::open('agenda');
 
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+
             $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
+            $pessoa->nome = 'Júlia Noschang Bisolo Estela Elis Krein';
             $pessoa->cpf = date('048.353.090-57');
             $pessoa->dt_nascimento = ('1998-10-10');
             $pessoa->endereco = 'Rua Teste Auto';
@@ -970,19 +590,23 @@ public function testCreateDeleteProfissao1()
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
-            $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
+            $this->assertEquals( Pessoa::validaTamanhoNome($pessoa->id), $value );
             
             TTransaction::rollback();
-  
         }
-        public function testTamanhoPreenchimentoCPFPessoa()
+
+        public function testTamanhoPreenchimentoCpfPessoa()
         {
             $value = true;
 
             TTransaction::open('agenda');
 
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+
             $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
+            $pessoa->nome = 'Júlia Noschang Bisolo Estela Elis Krein';
             $pessoa->cpf = date('048.353.090-57');
             $pessoa->dt_nascimento = ('1998-10-10');
             $pessoa->endereco = 'Rua Teste Auto';
@@ -993,19 +617,23 @@ public function testCreateDeleteProfissao1()
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
-            $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
+            $this->assertEquals( Pessoa::validaTamanhoCpf($pessoa->id), $value );
             
             TTransaction::rollback();
-  
         }
+
         public function testTamanhoPreenchimentoEnderecoPessoa()
         {
             $value = true;
 
             TTransaction::open('agenda');
 
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+
             $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
+            $pessoa->nome = 'Júlia Noschang Bisolo Estela Elis Krein';
             $pessoa->cpf = date('048.353.090-57');
             $pessoa->dt_nascimento = ('1998-10-10');
             $pessoa->endereco = 'Rua Teste Auto';
@@ -1016,19 +644,23 @@ public function testCreateDeleteProfissao1()
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
-            $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
+            $this->assertEquals( Pessoa::validaTamanhoEndereco($pessoa->id), $value );
             
             TTransaction::rollback();
-  
         }
+
         public function testTamanhoPreenchimentoTelefonePessoa()
         {
             $value = true;
 
             TTransaction::open('agenda');
 
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+
             $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
+            $pessoa->nome = 'Júlia Noschang Bisolo Estela Elis Krein';
             $pessoa->cpf = date('048.353.090-57');
             $pessoa->dt_nascimento = ('1998-10-10');
             $pessoa->endereco = 'Rua Teste Auto';
@@ -1039,19 +671,23 @@ public function testCreateDeleteProfissao1()
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
-            $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
+            $this->assertEquals( Pessoa::validaTamanhoTelefone($pessoa->id), $value );
             
             TTransaction::rollback();
-  
         }
+
         public function testTamanhoPreenchimentoHistoricoPessoa()
         {
             $value = true;
 
             TTransaction::open('agenda');
 
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+
             $pessoa = new Pessoa();
-            $pessoa->nome = 'Ana Maria';
+            $pessoa->nome = 'Júlia Noschang Bisolo Estela Elis Krein';
             $pessoa->cpf = date('048.353.090-57');
             $pessoa->dt_nascimento = ('1998-10-10');
             $pessoa->endereco = 'Rua Teste Auto';
@@ -1062,10 +698,9 @@ public function testCreateDeleteProfissao1()
             $pessoa->fl_ativo = true;
             $pessoa->store();
 
-            $this->assertEquals( Pessoa::validaTamanho($pessoa->id), $value );
+            $this->assertEquals( Pessoa::validaTamanhoHistorico($pessoa->id), $value );
             
             TTransaction::rollback();
-  
         }
     }
 ?>

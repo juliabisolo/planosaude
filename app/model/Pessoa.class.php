@@ -35,4 +35,75 @@ class Pessoa extends TRecord
             return $pessoa;
         }
     }
+
+    public static function validaTamanhoNome($ref_pessoa)
+    {
+        $pessoa = new Pessoa($ref_pessoa);
+
+        $len = strlen($pessoa->nome);
+
+        if($len < 120)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function validaTamanhoCpf($ref_pessoa)
+    {
+        $pessoa = new Pessoa($ref_pessoa);
+
+        $len = strlen($pessoa->cpf);
+
+        if($len < 15)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function validaTamanhoEndereco($ref_pessoa)
+    {
+        $pessoa = new Pessoa($ref_pessoa);
+
+        $len = strlen($pessoa->cpf);
+
+        if($len > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function validaTamanhoTelefone($ref_pessoa)
+    {
+        $pessoa = new Pessoa($ref_pessoa);
+
+        $len = strlen($pessoa->cpf);
+
+        if($len < 15)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static function validaTamanhoHistorico($ref_pessoa)
+    {
+        $pessoa = new Pessoa($ref_pessoa);
+
+        $len = strlen($pessoa->cpf);
+
+        if($len > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 }
