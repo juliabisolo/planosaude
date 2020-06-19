@@ -27,8 +27,8 @@
             
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('d-m-Y H:i');
-            $consulta->data_hora_fim = date('d-m-Y H:i');
+            $consulta->data_hora_inicio = date('d-m-Y H:i:s');
+            $consulta->data_hora_fim = date('d-m-Y H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
                     
@@ -60,8 +60,8 @@
 
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('d-m-Y H:i');
-            $consulta->data_hora_fim = date('d-m-Y H:i');
+            $consulta->data_hora_inicio = date('y-m-d H:i:s');
+            $consulta->data_hora_fim = date('y-m-d H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
 
@@ -93,8 +93,8 @@
 
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('d-m-Y H:i');
-            $consulta->data_hora_fim = date('d-m-Y H:i');
+            $consulta->data_hora_inicio = date('y-m-d H:i:s');
+            $consulta->data_hora_fim = date('y-m-d H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
 
@@ -126,8 +126,8 @@
 
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('d-m-Y H:i');
-            $consulta->data_hora_fim = date('d-m-Y H:i');
+            $consulta->data_hora_inicio = date('y-m-d H:i:s');
+            $consulta->data_hora_fim = date('y-m-d H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
 
@@ -142,20 +142,37 @@
             
             $value = 0;
 
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+            
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
             $agendamento = new Agendamento();
             $agendamento->fl_ativo = true;
             $agendamento->data_hora_inicio = '2020-04-15 14:00:00';
             $agendamento->data_hora_fim = '2020-04-15 15:00:00';
-            $agendamento->ref_pessoa_paciente = 1;
+            $agendamento->ref_pessoa_paciente = $pessoa->id;
             $agendamento->store();
 
-            $agendamentos = Agendamento::where('ref_pessoa_paciente', '=', '1')->load();
+            $agendamentos = Agendamento::where('ref_pessoa_paciente', '=', $pessoa->id)->load();
+
             foreach ($agendamentos as $agendamento)
             {
                 $agendamento->delete();
             }
 
-            $ref_pessoa_paciente = 1;
+            $ref_pessoa_paciente = $pessoa->id;
                     
             $this->assertEquals( Agendamento::getTotalAgendamentosPessoa($ref_pessoa_paciente), $value );
             TTransaction::rollback();
@@ -165,10 +182,26 @@
         {
             //busca a quantidade de agendamentos por pessoa. Primeiro deleta todos, depois cria 3. 3 = 3.
             TTransaction::open('agenda');
-            
             $value = 3;
 
-            $agendamentos = Agendamento::where('ref_pessoa_paciente', '=', '1')->load();
+            $profissao = new Profissao();
+            $profissao->descricao = 'Profissão teste auto.';
+            $profissao->store();
+            
+            $pessoa = new Pessoa();
+            $pessoa->nome = 'Ana Maria';
+            $pessoa->cpf = date('048.353.090-57');
+            $pessoa->dt_nascimento = ('1998-10-10');
+            $pessoa->endereco = 'Rua Teste Auto';
+            $pessoa->telefone = '(51)00000-0000';
+            $pessoa->cor_agenda = '#1a5d3e';
+            $pessoa->historico = 'Teste histórico Ana Maria';
+            $pessoa->ref_profissao = $profissao->id;
+            $pessoa->fl_ativo = true;
+            $pessoa->store();
+
+            $agendamentos = Agendamento::where('ref_pessoa_paciente', '=', $pessoa->id)->load();
+
             foreach ($agendamentos as $agendamento)
             {
                 $agendamento->delete();
@@ -178,24 +211,24 @@
             $agendamento->fl_ativo = true;
             $agendamento->data_hora_inicio = '2020-04-15 14:00:00';
             $agendamento->data_hora_fim = '2020-04-15 15:00:00';
-            $agendamento->ref_pessoa_paciente = 1;
+            $agendamento->ref_pessoa_paciente = $pessoa->id;
             $agendamento->store();
 
             $agendamento = new Agendamento();
             $agendamento->fl_ativo = true;
             $agendamento->data_hora_inicio = '2020-04-22 14:00:00';
             $agendamento->data_hora_fim = '2020-04-22 15:00:00';
-            $agendamento->ref_pessoa_paciente = 1;
+            $agendamento->ref_pessoa_paciente = $pessoa->id;
             $agendamento->store();
 
             $agendamento = new Agendamento();
             $agendamento->fl_ativo = true;
             $agendamento->data_hora_inicio = '2020-04-29 14:00:00';
             $agendamento->data_hora_fim = '2020-04-29 15:00:00';
-            $agendamento->ref_pessoa_paciente = 1;
+            $agendamento->ref_pessoa_paciente = $pessoa->id;
             $agendamento->store();
 
-            $ref_pessoa_paciente = 1;
+            $ref_pessoa_paciente = $pessoa->id;
                     
             $this->assertEquals(Agendamento::getTotalAgendamentosPessoa($ref_pessoa_paciente), $value);
             TTransaction::rollback();
