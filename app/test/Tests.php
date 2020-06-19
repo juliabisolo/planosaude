@@ -60,8 +60,8 @@
 
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('y-m-d H:i:s');
-            $consulta->data_hora_fim = date('y-m-d H:i:s');
+            $consulta->data_hora_inicio = date('Y-m-d H:i:s');
+            $consulta->data_hora_fim = date('Y-m-d H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
 
@@ -93,8 +93,8 @@
 
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('y-m-d H:i:s');
-            $consulta->data_hora_fim = date('y-m-d H:i:s');
+            $consulta->data_hora_inicio = date('Y-m-d H:i:s');
+            $consulta->data_hora_fim = date('Y-m-d H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
 
@@ -126,8 +126,8 @@
 
             $consulta = new Consulta();
             $consulta->parecer = 'Teste';
-            $consulta->data_hora_inicio = date('y-m-d H:i:s');
-            $consulta->data_hora_fim = date('y-m-d H:i:s');
+            $consulta->data_hora_inicio = date('Y-m-d H:i:s');
+            $consulta->data_hora_fim = date('Y-m-d H:i:s');
             $consulta->ref_pessoa_paciente = $pessoa->id;
             $consulta->store();
 
