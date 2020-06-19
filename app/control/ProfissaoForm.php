@@ -36,7 +36,7 @@ class ProfissaoForm extends TPage
 
         // add one row for each form field
         $this->form->addFields([$id]);
-        $row = $this->form->addFields( [new TLabel('Descrição ESTELA:'), $descricao] );
+        $row = $this->form->addFields( [new TLabel('Descrição:'), $descricao] );
         $row->layout = ['col-sm-5']; //comprimento do campo, setSize não funcionou
         
         $this->form->addAction( _t('Save'),   new TAction(array($this, 'onSave')),   'fa:save green');
