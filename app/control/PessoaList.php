@@ -25,7 +25,7 @@ class PessoaList extends TPage
         $this->form->class = 'tform'; // change CSS class
         
         $this->form->style = 'display: table;width:100%'; // change style
-        $this->form->setFormTitle('PESSOAS');
+        $this->form->setFormTitle('PESSOAS-Júlia');
 
         // create the form fields
         $id = new TEntry('id');
