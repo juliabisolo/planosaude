@@ -1,7 +1,6 @@
 <?php
 /**
  * PessoaList Listing
- * @author  <juliabisolo>
  */
 class PessoaList extends TPage
 {
@@ -25,7 +24,7 @@ class PessoaList extends TPage
         $this->form->class = 'tform'; // change CSS class
         
         $this->form->style = 'display: table;width:100%'; // change style
-        $this->form->setFormTitle('PESSOAS-Júlia');
+        $this->form->setFormTitle('Pessoas');
 
         // create the form fields
         $id = new TEntry('id');
@@ -191,7 +190,7 @@ class PessoaList extends TPage
         try
         {
             // open a transaction with database 'agenda_julia'
-            TTransaction::open('agenda');
+            TTransaction::open('planosaude');
             
             // creates a repository for Pessoa
             $repository = new TRepository('Pessoa');
@@ -269,7 +268,7 @@ class PessoaList extends TPage
 
     public function desativa($param)
     {
-        TTransaction::open('agenda');
+        TTransaction::open('planosaude');
         $pessoa = new Pessoa($param['id']);
         $pessoa->fl_ativo = FALSE;
         $pessoa->store();
@@ -288,7 +287,7 @@ class PessoaList extends TPage
 
     public function ativa($param)
     {
-        TTransaction::open('agenda');
+        TTransaction::open('planosaude');
         $pessoa = new Pessoa($param['id']);
         $pessoa->fl_ativo = TRUE;
         $pessoa->store();
